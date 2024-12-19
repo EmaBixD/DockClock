@@ -1,0 +1,79 @@
+html {
+  font-size: 100%;
+}
+body {
+  font-family: Arial;
+  text-align: center;
+  font-weight: 300;
+  font-size: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+#clock {
+    user-select: none; 
+    cursor: pointer;
+}
+
+/* for smaller screens below 700px */
+@media only screen and (max-width: 700px) {
+  body {
+    font-size: 1.8rem;
+  }
+}
+
+/*for smaller screens below 300px*/
+@media only screen and (max-width: 300px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+/* Animazione di spostamento del testo */
+@keyframes swipeHint {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(50px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Applicazione dell'animazione all'orologio */
+#clock.swipe-hint {
+  animation: swipeHint 2s ease-in-out;
+}
+
+/* Stile per il messaggio introduttivo */
+#hint-message {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Nascondi il messaggio */
+#hint-message.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
